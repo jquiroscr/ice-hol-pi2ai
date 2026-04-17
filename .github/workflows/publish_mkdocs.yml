@@ -1,0 +1,31 @@
+name: Publish MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # permite lanzarlo manualmente desde la UI de GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install MkDocs dependencies
+        run: |
+          pip install -r instructor/mkdocs/requirements.txt
+
+      - name: Build and deploy to GitHub Pages
+        working-directory: instructor/mkdocs
+        run: |
+          mkdocs gh-deploy -r origin --no-history --force

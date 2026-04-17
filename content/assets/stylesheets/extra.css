@@ -1,0 +1,161 @@
+/* ============================================================
+   Grupo ICE × Cloudera — HOL PI Systems 2 AI
+   Brand colors: Cloudera Orange + ICE Blue
+   ============================================================ */
+
+:root > * {
+  /* Primary: Cloudera Orange */
+  --md-primary-fg-color:        #ff550d;
+  --md-primary-fg-color--light: #ff8856;
+  --md-primary-fg-color--dark:  #1b5e7b;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #f3f5f7;
+
+  /* Accent: Blue Nova */
+  --md-accent-fg-color:             #5555f9;
+  --md-accent-fg-color--transparent: hsla(240, 93%, 65%, 0.1);
+  --md-accent-bg-color:             #ffffff;
+
+  /* Footer: ICE Blue / Cloudera Twilight */
+  --md-footer-bg-color:       #1b5e7b;
+  --md-footer-bg-color--dark: #120046;
+  --md-footer-fg-color:       #cddbe4;
+  --md-footer-fg-color--light: #f3f5f7;
+  --md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.3);
+
+  /* Links */
+  --md-text-link-color: #5555f9;
+}
+
+/* ── Navigation tabs ── */
+.md-tabs {
+  background-color: #1b2a4a;
+}
+
+/* ── Reduce top margin ── */
+.md-main__inner {
+  margin-top: 0.5rem;
+}
+
+/* ── Footer copyright links ── */
+.md-copyright__highlight a {
+  color: #5555f9 !important;
+  text-decoration: underline;
+  transition: opacity 0.3s ease-in-out;
+}
+.md-copyright__highlight a:hover { opacity: 0.8; }
+
+/* ── Step boxes (numbered lab steps) ── */
+.step-box {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0;
+  margin: 1.2rem 0;
+  border: 1px solid #1b5e7b;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.step-num {
+  background: #1b5e7b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-content {
+  padding: 0.8rem 1rem;
+  background: #eaf3f7;
+}
+.step-content p { margin: 0.3rem 0; }
+
+/* ── Callout overrides for admonition ── */
+.md-typeset .admonition.objetivo,
+.md-typeset details.objetivo {
+  border-color: #1b5e7b;
+}
+.md-typeset .objetivo > .admonition-title,
+.md-typeset .objetivo > summary {
+  background-color: rgba(27,94,123,.15);
+}
+.md-typeset .objetivo > .admonition-title::before,
+.md-typeset .objetivo > summary::before {
+  background-color: #1b5e7b;
+  -webkit-mask-image: var(--md-admonition-icon--tip);
+  mask-image: var(--md-admonition-icon--tip);
+}
+
+/* ── Username Selector ── */
+.username-selector-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+.username-input-container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--md-code-bg-color);
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  align-items: center;
+  width: 55%;
+  min-width: 300px;
+}
+.username-input-container select {
+  padding: 10px 36px 10px 12px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--md-typeset-color);
+  background-color: var(--md-default-bg-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 1;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 20px;
+}
+.username-input-container select:focus {
+  outline: none;
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 3px var(--md-accent-fg-color--transparent);
+}
+.username-input-container button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  font-family: inherit;
+}
+#user-username-save {
+  background-color: var(--md-primary-fg-color);
+  color: #fff;
+}
+#user-username-save:hover  { background-color: var(--md-primary-fg-color--light); transform: translateY(-2px); }
+#user-username-save:active { transform: translateY(0); }
+#user-username-clear {
+  background-color: var(--md-accent-fg-color);
+  color: #fff;
+}
+#user-username-clear:hover  { background-color: #4444d9; transform: translateY(-2px); }
+#user-username-clear:active { transform: translateY(0); }
+.username-display { display: flex; align-items: center; justify-content: center; }
+.username-display h3 { margin: 0; font-size: 1.3rem; font-weight: 600; }
+.username-display #selected-username { color: var(--md-primary-fg-color); font-weight: 700; }
+
+/* ── Images: glightbox clickable hint ── */
+.md-typeset img { cursor: zoom-in; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+
+/* ── Code block enhancements ── */
+.md-typeset pre > code { font-size: 0.82rem; }

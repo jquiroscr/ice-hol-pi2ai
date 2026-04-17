@@ -1,0 +1,88 @@
+site_name: "Grupo ICE — PI Systems 2 AI · Hands on Lab"
+site_author: "Javier Quiros, Cloudera Solution Engineering"
+copyright: >
+  2026 Cloudera Inc. All rights reserved.&nbsp;
+  <a href="https://www.cloudera.com/legal/terms-and-conditions.html" target="_blank">Terms & Conditions</a> |
+  <a href="https://www.cloudera.com/legal/policies.html" target="_blank">Privacy Policy</a>
+
+theme:
+  name: material
+  logo: assets/images/logos/cloudera-white.svg
+  favicon: assets/images/logos/favicon.ico
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        name: Cambiar a modo oscuro
+        icon: material/weather-night
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        name: Cambiar a modo claro
+        icon: material/weather-sunny
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - navigation.footer
+    - navigation.top
+    - navigation.tabs
+    - search.highlight
+    - search.suggest
+
+docs_dir: '../../content'
+site_dir: './build'
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/username-replacer.js
+
+use_directory_urls: false
+
+nav:
+  - Inicio: 'README.md'
+  - Lab:
+      - Introducción y Prerrequisitos: 'labs/lab1/README.md'
+      - Schema Registry y Kafka: 'labs/lab1/schema-kafka.md'
+      - Apache NiFi: 'labs/lab1/nifi.md'
+      - Kudu: 'labs/lab1/kudu.md'
+      - SQL Stream Builder: 'labs/lab1/ssb.md'
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - sane_lists: {}
+  - toc:
+      toc_depth: 3
+
+plugins:
+  - same-dir
+  - search
+  - glightbox
+
+extra:
+  generator: false
+  env_name: ice-hol-cdp-env
+  kafka_broker: "<kafka-broker-host>:9093"
+  schema_registry: "<schema-registry-host>"
+  kudu_masters: "kudu-grupo-ice-master20.ice-hol.bmarp0.a1.cloudera.site:7051,kudu-grupo-ice-master10.ice-hol.bmarp0.a1.cloudera.site:7051,kudu-grupo-ice-master30.ice-hol.bmarp0.a1.cloudera.site:7051"
+  vm_ip: "<IP-de-tu-VM>"
